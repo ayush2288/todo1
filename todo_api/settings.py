@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1n2=$fou0ru=i7m#=%xiny_7xz!))c)1#yaq6f0fn2i)!@!@t4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -125,14 +125,13 @@ USE_TZ = True
 import os
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collect static files here during deployment
 
-# STATIC_ROOT should usually point to a directory where static files will be collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# STATICFILES_DIRS should be a list of directories that contain static files for development
+# Add any static directories for development
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'todos', 'templates', 'static'),
 ]
+
 
 
 # Default primary key field type
