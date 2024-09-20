@@ -118,13 +118,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'templates'
+
+
+import os
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT should usually point to a directory where static files will be collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# STATICFILES_DIRS should be a list of directories that contain static files for development
 STATICFILES_DIRS = [
-    BASE_DIR / 'todos'/ 'templates' / 'static',  # Point to your static directory
+    os.path.join(BASE_DIR, 'todos', 'templates', 'static'),
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
